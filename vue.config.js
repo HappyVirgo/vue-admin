@@ -4,6 +4,10 @@ const { VuetifyProgressiveModule } = require("vuetify-loader");
 module.exports = {
   transpileDependencies: ["vuetify"],
   chainWebpack: config => {
+    config.plugin('html').tap(args => {
+        args[0].title = 'Vue Admin Page';
+        return args;
+    });
     config.module
       .rule("vue")
       .use("vue-loader")
